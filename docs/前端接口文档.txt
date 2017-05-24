@@ -1,0 +1,573 @@
+
+
+1、获取样式列表
+	请求URL:
+    http://127.0.0.1:8080/weeditor-web/style/page_list.do?page=0&type=1&second_type=1&size=20
+	参数：
+		page第几页，
+		从0开始，
+		type第一级类别，
+		second_type二级类别
+		size每页大小
+	返回结果：
+	{
+    "code": 0,
+    "msg": "成功",
+    "data": {
+        "cur_page": 0,
+        "total_page": 1,
+        "total": 1,
+        "size": 20,
+        "list": [
+            {
+                "id": 1,
+                "type": 1,//素材类型[1、标题2、正文3、图文4、关注5、分隔符6、二维码7、几日8、其他]
+                "content": "1",//实际内容
+                "orderNum": 1,//排序号
+                "createTime": 1491882850000,
+                "updateTime": 1492487653000,
+                "title": "1",//标题
+                "secondType": 1,//二级类型
+                "label": "1",//标签
+                "creater": "1",//创建人
+                "updater": "1",//修改人
+                "status": 1,
+				"collected":0//0是没有收藏  ，大于0是已收藏
+            }
+        ]
+    },
+    "success": true
+	
+}
+
+
+2、样式收藏接口【操作两张表】和模板收藏接口【操作两张表】是同一个接口
+    请求URL:
+	http://127.0.0.1:8080/weeditor-web/collection/add.do?type=1&other_id=1
+	参数：
+	type  1，收藏样式 0、收藏模板
+	other_id  收藏的样式或者模板的id
+	返回结果：
+	{
+		"code": 0,
+		"msg": "成功",
+		"data": null,
+		"success": true
+	}
+	
+	
+3、样式收藏列表【type】[userid]  模板收藏列表【】[userid]同一个
+	请求URL:
+	http://127.0.0.1:8080/weeditor-web/collection/page_list.do?type=1&page=0
+	参数：
+		page  当前是第几页
+		type  0、模板收藏  1、样式收藏
+ 
+	
+	返回结果：
+	{
+		"code": 0,
+		"msg": "成功",
+		"data": {
+			"cur_page": 0,
+			"total_page": 1,
+			"total": 1,
+			"size": 10,
+			"list": [
+				{
+					"id": 1,//这里的字段同第一个接口的字段意思一样
+					"type": 1,
+					"content": "1",
+					"orderNum": 1,
+					"createTime": 1491882850000,
+					"updateTime": 1492487653000,
+					"title": "1",
+					"secondType": 1,
+					"label": "1",
+					"creater": "1",
+					"updater": "1",
+					"status": 1
+				}
+			]
+		},
+		"success": true
+	}
+
+
+
+4、系统模板列表
+	请求URL:
+	http://127.0.0.1:8080/weeditor-web/template/page_list.do?page=0&size=20&template_group_id=1
+	参数：
+	page：当前页
+	size:每页大小
+	template_group_id 模板组的id
+	返回结果：
+	{
+		"code": 0,
+		"msg": "成功",
+		"data": {
+			"cur_page": 0,
+			"total_page": 1,
+			"total": 1,
+			"size": 20,
+			"list": [
+				{
+					"id": 1,
+					"title": "1",//标题
+					"description": "1",//描述
+					"url": "1",//封面url
+					"orderNum": 1,//排序号
+					"status": 1,//状态
+					"actualContent": "1",//实际内容
+					"label": "1",//标签以#分割
+					"createTime": 1492584066000,
+					"updateTime": 1491892856000,
+					"creater": "1",//创建人
+					"updater": "1",//修改人
+					"collected":0//0是没有收藏  ，大于0是已收藏
+				}
+			]
+		},
+		"success": true
+	}
+
+
+	
+5、我的模板自定义列表。
+	请求URL:
+	http://127.0.0.1:8080/weeditor-web/customTemplate/page_list.do?page=0
+	参数：
+	page：当前页
+	size:每页大小
+	返回结果：
+	{
+		"code": 0,
+		"msg": "成功",
+		"data": {
+			"cur_page": 0,
+			"total_page": 1,
+			"total": 1,
+			"size": 10,
+			"list": [
+				{
+					"id": 1,
+					"title": "1",//模板名字
+					"description": "1",
+					"userId": 1,
+					"memberId": 1,
+					"actualContent": "1",//模板实际内容
+					"createTime": 1492584681000,
+					"updateTime": 1493189485000,
+					"status": 1
+				}
+			]
+		},
+		"success": true
+	}
+	
+6、我的图片列表
+	请求URL:
+	http://127.0.0.1:8080/weeditor-web/picture/page_list.do?page=0&type=2&size=20
+	参数：
+	page：当前页
+	size:每页大小
+	
+	
+	
+	返回值：
+	{
+		"code": 0,
+		"msg": "成功",
+		"data": {
+			"cur_page": 0,
+			"total_page": 1,
+			"total": 1,
+			"size": 20,
+			"list": [
+				{
+					"id": 1,
+					"memberId": 1,
+					"url": "WWW.BAIDU.COM",//图片地址
+					"createTime": 1493088834000,
+					"label": "123",//图片标签
+					"type": 1,//图片分类【1、动态图，2、静态图】
+					"userId": 1,
+					"updateTime": null
+				}
+			]
+		},
+		"success": true
+	}
+	
+	
+7、上传图片
+	请求URL:
+	http://127.0.0.1:8080/weeditor-web/picture/add_picture.do?type=1&label=123
+	参数：
+	type:图片分类【1、动态图，2、静态图】
+	lable:图片标签【例如：人物#动态，以#分割】
+	
+	返回结果：
+	{
+		"code": 0,
+		"msg": "成功",
+		"data": null,
+		"success": true
+	}
+	
+	
+8、模板另存为
+	请求URL:
+	http://127.0.0.1:8080/weeditor-web/custom_template/add_custom_template.do?title=123&actual_content=456
+	参数：
+	title:模板标题
+	actual_content:模板实际内容
+	返回结果：
+	{"code":0,"msg":"成功","data":2,"success":true}
+	
+	
+9、添加单图文
+   请求URL:
+   http://127.0.0.1:8080/weeditor-web/my_single_article/add.do?title=22&show_cover_pic=2&digest=22&content=22&content_source_url=22&author=22&cover_pic=11&article_ascription_num=456
+   参数：
+   title:标题 
+   show_cover_pic 是否在正文顶部显示封面图
+   digest 摘要
+   conent内容
+   content_source_url原文链接
+   author 作者
+   cover_pic 封面图片url
+   article_ascription_num  文章归属哪个公众号[不填的时候每个文章都有]
+   返回结果：
+   {"code":0,"msg":"成功","data":5095,"success":true}
+   
+   
+10、删除单图文
+     请求URL:
+	 http://127.0.0.1:8080/weeditor-web/my_single_articl/del.do?id=5095
+	 参数：
+	 id单图文的id
+	 返回结果：
+	 {"code":0,"msg":"成功","data":null,"success":true}
+	 
+11、获取一个单图文
+     请求URL:
+	 http://127.0.0.1:8080/weeditor-web/my_single_article/detail.do?id=1
+	 参数：
+	 id单图文的id
+	 返回结果：
+	 {
+		"code": 0,
+		"msg": "成功",
+		"data": {
+			"id": 1,
+			"member_id": 1,
+			"user_id": 1,
+			"title": "1",//标题
+			"cover_pic": "1",//是否在正文顶部显示封面图
+			"show_cover_pic": 1,//封面图片url
+			"digest": "1",//摘要
+			"content": "1",//内容
+			"content_source_url": "1",//原文链接
+			"author": "1",//作者
+			"status": 0,//状态
+			"create_time": 1493108729000,
+			"update_time": 1493108732000,
+			"creater": "1",//创建人
+			"updater": "1"// 修改人
+		},
+		"success": true
+	}
+	
+	
+12、添加一个多图文
+    请求URL:
+	http://127.0.0.1:8080/weeditor-web/my_multi_article/add.do?ids=1,5094
+	参数：
+	ids 单图文的id,以逗号分隔，如果是article的id,那么以_开头，如果是sigleArticle的id那么就是他本身id
+	返回值：
+	{"code":0,"msg":"成功","data":null,"success":true}
+	
+	
+13、删除一个多图文
+    请求URL:
+	http://127.0.0.1:8080/weeditor-web/my_multi_article/del.do?id=343
+	参数：
+	id:多图文的id
+	返回值：
+	{"code":0,"msg":"成功","data":null,"success":true}
+	
+14、获取一个多图文
+    请求URL:
+	http://127.0.0.1:8080/weeditor-web/my_multi_article/detail.do?id=344
+	参数：
+	id:多图文的id
+	返回值：
+	{
+		"code": 0,
+		"msg": "成功",
+		"data": [
+			{
+				"id": 5097,
+				"group_id": 344,//
+				"title": "1",
+				"cover_pic": "1",//是否在正文顶部显示封面图
+				"show_cover_pic": 1,//封面图片url
+				"digest": "1",//摘要
+				"content": "1",//内容
+				"content_source_url": "1",//原文链接
+				"author": "1",//作者
+				"index": 0,//单图文排序号
+				"create_time": 1493108729000,
+				"update_time": 1493108732000
+			},
+			{
+				"id": 5098,
+				"group_id": 344,
+				"title": "22",
+				"cover_pic": "22",
+				"show_cover_pic": 2,
+				"digest": "22",
+				"content": "22",
+				"content_source_url": "22",
+				"author": "22",
+				"index": 1,
+				"create_time": 1493170365000,
+				"update_time": 1493172264000
+			}
+		],
+		"success": true
+	}
+	
+15、修改一个多图文
+	请求URL
+	http://127.0.0.1:8080/weeditor-web/my_multi_article/update.do?id=344&ids=1,5094
+	参数：
+	id要修改的多图文的id
+	ids:这次生成的自图文的id集合
+   
+   
+16、获取模板分组
+	请求URL:
+	http://localhost:8080/weeditor-web/template_group/list.do
+	参数：无
+	返回值：
+	{"code":0,"msg":"成功","data":[{"id":1,"name":"测试","create_time":1493186397000}],"success":true}
+	
+	
+17、根据模板id,获取单个模板
+	请求URL：
+	http://localhost:8080/weeditor-web/template/get_by_id.do?id=2
+	参数：
+	id:模板id
+	返回值：
+	{
+		"code": 0,
+		"msg": "成功",
+		"data": {
+			"id": 2,
+			"title": "2",//标题
+			"description": "2",//描述
+			"url": "http://img.xdnphb.com/test/genus/upload/editor/style/template/2016/08/30/d7f7dafe-4334-4e14-a319-b2d6c6f8cf87.jpg",
+			"order_num": 2,//排序号
+			"status": 1,//状态
+			"actual_content": "新榜编辑器香销冷雨帘襟落，提阶上，空廊回风，忆艾郎，前日曾共沐，暖手同游，梦惊尤在枕边，孤影叹单，冷暖心知。",//实际内容
+			"label": "2",//标签
+			"updater": "2",
+			"creater": "2",
+			"update_time": 1493186446000,
+			"create_time": 1493186446000
+		},
+		"success": true
+	}
+	
+18、删除我的某张图片
+	请求RUL:
+	http://localhost:8080/weeditor-web/picture/del_picture.do?user_id=1&picture_id=2
+	参数：
+	user_id 当前用户id
+	picture_id 图片id
+	返回值：
+	{"code":0,"msg":"成功","data":null,"success":true}
+	
+	
+19、检索百度图片接口
+	请求URL:
+	http://localhost:8080/weeditor-web/load_image/list.do?keyWord=%25E8%2586%259C%25E6%258B%259C%25E5%258D%2595%25E8%25BD%25A6&pageNum=1&pageSize=20
+	参数：
+	keyWord:检索内容
+	pageNum:当前页号（0是第一页）
+	pageSize:每页数据多少(经测试这个参数不好用)
+	返回结果：
+	{
+    "code": 0,//成功还是失败
+    "msg": "成功",
+    "data": [
+        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=480927576,3835857670&fm=23&gp=0.jpg",
+        "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=179232496,2546571179&fm=23&gp=0.jpg",
+        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1673637011,3393618001&fm=23&gp=0.jpg",
+        "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=315575758,3926739387&fm=23&gp=0.jpg",
+        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1092703405,736175743&fm=23&gp=0.jpg",
+        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=848619292,3000824440&fm=23&gp=0.jpg",
+        "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4103002991,8490504&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=936264198,665022280&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1900759563,1802324863&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2997409911,178498011&fm=23&gp=0.jpg",
+        "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1503824689,3351643644&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3698778065,2713601045&fm=23&gp=0.jpg",
+        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2506682147,2166840397&fm=23&gp=0.jpg",
+        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2775406489,2683346057&fm=23&gp=0.jpg",
+        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2569492027,752306449&fm=23&gp=0.jpg",
+        "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1087575306,3703943661&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=410818436,2901018118&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=995559907,1778714489&fm=23&gp=0.jpg",
+        "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1380013971,3931451644&fm=23&gp=0.jpg",
+        "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2325193611,1452307700&fm=23&gp=0.jpg",
+        "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3594829285,1002446126&fm=23&gp=0.jpg",
+        "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=947245002,4072363193&fm=23&gp=0.jpg",
+        "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=541010292,2460146763&fm=23&gp=0.jpg",
+        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4098726097,2296556207&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3297836547,3094682359&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3874290247,54666243&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1951712193,3393078503&fm=23&gp=0.jpg",
+        "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1401163588,347397256&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1426940776,1460917742&fm=23&gp=0.jpg",
+        "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1379438108,662238992&fm=23&gp=0.jpg"
+    ],
+    "success": true
+}
+
+
+20、多文件上传接口
+	请求URL:
+	http://localhost:8080/weeditor-web/upload/upload_files.do
+	返回参数:
+
+21、上传网络图片
+	请求URL:
+	http://localhost:8080/upload/upload_url.do?imgUrl=https://www.baidu.com/img/bd_logo1.png
+	参数：
+	imgUrl
+	https://www.baidu.com/img/bd_logo1.png
+	返回值：
+	{"code":0,"msg":"成功","data":"http://7xthad.com2.z0.glb.qiniucdn.com/bde87168-bc02-44e6-b4e3-5f34d9b5a716.png","success":true}
+
+22、系统常量接口
+	
+	 //根据父级id查询常量
+     http://localhost:8080/constant/query_list.do?parent_id=1
+	 
+	 或者
+	  //根据类别查询常量
+	 http://localhost:8080/constant/query_list.do?type=editor
+	 
+	 返回值：
+	 {
+    "code": 0,
+    "msg": "成功",
+    "data": [
+        {
+            "id": 1,
+            "parent_id": -1,
+            "text": "样式",//常量显示的内容
+            "type": "editor",//常量类型
+            "val": 1,//常量值
+            "order_num": 1,//排序号
+            "status": 1,
+            "create_time": 1495520586000,
+            "update_time": null
+        },
+        {
+            "id": 2,
+            "parent_id": -1,
+            "text": "模板",
+            "type": "editor",
+            "val": 2,
+            "order_num": 2,
+            "status": 1,
+            "create_time": 1495088621000,
+            "update_time": null
+        }
+    ],
+    "success": true
+}
+	 
+23、加载编辑页面  三级菜单
+    请求URL:
+	/constant/query_first_second_list.do
+	返回值：
+	JSON
+
+24、我的网络图文   收藏列表接口
+    请求URL:
+    http://localhost:8080/collection/net_article_page_list.do?page=0
+    参数：
+    size:条目数
+    page:0 第几页
+    返回值：
+
+
+25、收藏网络图文  接口
+	请求URL:【必须是POST请求】
+	http://localhost:8080/collection/add_net_article_collection.do
+	参数：
+	uid  网络文章的唯一标识
+	url  网络图文的地址url【该url必须经过utf-8编码】
+
+26、取消收藏网络图文  接口
+    请求RUL:
+    http://localhost:8080/collection/del_net_article_collection.do?uid=321
+    参数：
+    uid  网络文章唯一标识
+
+27、取消一个样式收藏或者取消一个模板收藏
+	请求URL:
+	http://localhost:8080/collection/del.do?type=1&other_id=1
+	参数：
+	type  1，收藏样式 0、收藏模板
+	other_id  收藏的样式或者模板的id
+	返回结果：
+	{
+		"code": 0,
+		"msg": "成功",
+		"data": null,
+		"success": true
+	}
+	
+28、获取一个自定义模板对象
+   请求URL:
+	http://localhost:8080/custom_template/get_by_id.do?id=28
+	参数：
+	id:自定义模板的参数
+	返回结果：
+	{
+	    "code": 0,
+	    "msg": "成功",
+	    "data": {
+	        "id": 28,
+	        "title": "程序员",///标题
+	        "description": null,//描述
+	        "user_id": 1,
+	        "member_id": 1,
+	        "status": 1,
+	        "actual_content": "999",//实际内容
+	        "create_time": 1495002791000,
+	        "update_time": null
+	    },
+	    "success": true
+	}
+	
+29、删除一个自定义模板
+	请求URL:
+	http://localhost:8080/custom_template/del_by_id.do?id=28
+	参数：
+	id:自定义模板的参数
+	返回结果：
+	{
+	    "code": 0,
+	    "msg": "成功",
+	    "data":{
+	    },
+	    "success": true
+	}

@@ -1,0 +1,12 @@
+@import 'base';
+
+header{
+	height: 55px;
+	background: rgb(66,66,65);
+	color: $colorWhite;
+	padding: 0 10px;
+	.logo_wrap{
+		line-height: 55px;
+	}
+
+}

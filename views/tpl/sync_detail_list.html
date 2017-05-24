@@ -1,0 +1,34 @@
+{%for app in items%}
+{%if app.status==3%}
+<!-- 同步完成的样子 -->
+<li class="weixinList" data-appId={{app.app_info_id}}>
+	<div class="weixinImg" style="background: url({{app.head_img_url}}) no-repeat; background-size: cover;"></div>
+	<p class="weixinName">{{app.app_name}}</p>
+	<p class="weixinTime">{{app.create_time|date('m月d日', -480, 'CCT')}}</p>
+	<p class="weixinStatus">已同步</p>
+</li>
+{%elseif app.status==4%}
+
+<!-- 同步失败的样子 -->
+<li class="weixinList" data-appId={{app.app_info_id}}>
+	<div class="weixinImg" style="background: url({{app.head_img_url}}) no-repeat; background-size: cover; "></div>
+	<p class="weixinName">{{app.app_name}}</p>
+	<p class="weixinTime">{{app.create_time|date('m月d日', -480, 'CCT')}}</p>
+	<p class="weixinStatus colorRed">同步失败</p>
+	<div class="syncAgain">
+		重新同步
+	</div>
+</li>
+{%elseif app.status<=2%}
+<!-- 同步中的样子 -->
+<li class="weixinList" data-appId={{app.app_info_id}}>
+	<div class="weixinImg" style="background: url({{app.head_img_url}}) no-repeat; background-size: cover; "></div>
+	<p class="weixinName">{{app.app_name}}</p>
+	<p class="weixinTime">{{app.create_time|date('m月d日', -480, 'CCT')}}</p>
+	<p class="weixinStatus colorYellow">正在同步</p>
+	<div class="onsync">
+		<span class="onSyncIcon"></span>
+	</div>
+</li>
+{%endif%}
+{%endfor%}

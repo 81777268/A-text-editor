@@ -1,0 +1,173 @@
+{% extends '../layout/layout-layer-0.html' %}
+
+{%block css%}
+  <link rel="stylesheet" type="text/css" href="../css/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/login.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../css/mymaterial_list.css">
+  <link rel="stylesheet" type="text/css" href="../css/myArticle.css">
+{%endblock%}
+
+{% block content %}
+<div class="loading_wrap"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>
+<div class="" style="height: auto;">
+ <input type="hidden" id="single_total_num" value="{{single_total}}">
+ <input type="hidden" id="multi_total_num" value="{{multi_total}}">
+
+ <div class="articleWrapper">
+      <ul class="tab_btn clearfix">
+         <li class="js_check_msg single" data-type="single"><a>单图文</a></li>
+         <li class="js_check_msg multi" data-type="multi"><a>多图文</a></li>
+         <li class="msg_search_wrap">
+              <div class="search_wrap">
+                 <div class="input_box">
+                     <input type="text" placeholder="请输入关键字" id="search_msg_input">
+                 </div>
+                 <span class="search_btn js_searchImg" id="search_msg_btn"><i class="iconfont icon-search01"></i></span>
+             </div>
+         </li>
+         <li class="creatMultimMsg">
+             <a href="/?type=new" class="btn btn_primary js_addSingleMsg">创建单图文</a>
+             <a href="javascript:;" class="btn btn_primary js_addMulitMsg" style="display: none;">创建多图文</a>
+         </li>
+         
+      </ul>
+      <div class="article-lists" >
+      </div>
+      <div style="padding:0 30px 10px 0;">
+         <div id="pagination" class="pagination"></div>
+      </div>
+ </div>
+</div>
+<!-- 同步公众号块 -->
+  <div class="syncBac"  id="syncBacAll" style="display: none;">
+    <div class="syncCon">
+      <p class="syncTitle">
+        选择需要同步的公众号
+        <p class="syncChooseDesc">
+          公众号共<span class="syncDescChooseSuc" id="weixinAllNum"></span>个，已选择<span class="syncDescChooseSuc" id="weixinChooseNum">0</span>个
+        </p>
+      </p>
+      <!-- 全选 -->
+      <div class="weixinChooseAllBtn" id="weixinChooseAllBtn">
+        <span class="weixinChooseAllBtnIcon"></span>
+        全选
+      </div>
+      <ul class="weixinListCon" id="weixinListCon">
+        
+      </ul>
+      <div class="saveBtnCon">
+        <div class="saveBtnConFCe">
+          <div class="saveBtn" id="syncSureBtn">确定</div>
+          <div class="deleteBtn" id="syncCancelBtn">取消</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 同步公众号块任务详情块 -->
+  <div class="syncBac"  id="syncBacTask">
+    <div class="syncCon">
+    <ul class="syncTitleTabUl" id="syncTitleTabUl"> 
+      <p class="syncTitle syncTitleTab" data-syncType=0 id="syncTitleTabTotalBtn">
+        同步总计
+      </p>
+      <p class="syncTitle syncTitleTab" data-syncType=3 id="syncTitleTabSucBtn">
+        同步成功
+      </p>
+      <p class="syncTitle syncTitleTab" data-syncType=4 id="syncTitleTabFailBtn">
+        同步失败
+      </p>
+      <p class="syncTitle syncTitleTab" data-syncType=2 id="syncTitleTabOnBtn">
+        同步中
+      </p>
+    </ul>
+      <ul class="weixinListCon" id="syncweixinCon">
+        
+        <div style="clear: both;"></div>
+      </ul>
+      <div class="saveBtnCon">
+        <div class="saveBtnConFCe">
+          <div class="saveBtn" id="syncBacTaskClose">知道了</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- 创建多图文弹框-star -->
+<div class="editMultiMsgWrap" style="display: none;">
+    <div class="warn_Wrap">  最多只能添加8条图文 </div>
+    <div class="content clearfix">
+        <span class="js_close"><i class="iconfont icon-close1"></i></span>
+        <div class="left_wrap">
+            <div class="search_panl" >
+                <div class="search_wrap">
+                   <div class="input_box">
+                       <input type="text" placeholder="请输入关键字" id="single_msg_input">
+                   </div>
+                   <span class="search_btn js_searchImg" id="single_msg_btn"><i class="iconfont icon-search01"></i></span>
+                </div>
+            </div>
+            <!-- 单图文展示区-star -->
+            <div class="single_articles_wrap js_single_list_view">
+               <div class="single_msg_lists"></div>
+               <div class="load_tip" style="display:none;">加载中...</div>
+            </div>
+            <!-- 单图文展示区-end -->
+            
+        </div>
+        <div class="right_wrap">
+           <div class="editing_wrap">
+              <div class="appmsg multi has_first_cover editing">
+                 <div class="appmsg_content">
+                      
+                 </div>
+              </div>
+            </div>
+            <div class="oprsave_wrap clearfix">
+                <a href="javascript:;" class="js_saveMultiMsg">保存</a>
+                <a href="javascript:;" class="js_saveAndSynMultiMsg">保存并同步</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 创建多图文弹框-end -->
+<!-- 预览-star -->
+<div class="wx_phone_preview_wrp jsPhoneView" style="display: none;">
+
+   <div class="wx_phone_preview">
+      <span class="close_PhoneView"><i class="iconfont icon-close1"></i></span>
+      <div class="wx_phone jsPhoneViewMain">
+        <div class="wx_phone_bd">
+           <div class="phone_view_wrap">
+           </div>
+        </div>
+      </div>
+      <div class="wx_view_container jsPhoneViewPlugin">
+        <div>
+            <ul class="wx_view_list">
+                <li class="wx_view_item jsPhoneViewLink selected" data-id="card">图文消息</li>
+                <li class="wx_view_item jsPhoneViewLink" data-id="appmsg">消息正文</li>
+            </ul>
+            <ul class="wx_article_crtl">        
+                <li class="crtl_btn crtl_pre_btn  jsPhoneViewCard" data-index="0">上一篇</li>        
+                <li class="crtl_btn crtl_next_btn  jsPhoneViewCard" data-index="2">下一篇</li>
+            </ul>
+        </div>
+      </div>
+   </div>
+   <div class="mask"></div>
+</div>       
+<!-- 预览-end -->
+{% endblock %}
+
+{% block footerjs %}
+{% parent %}
+<script type="text/javascript">
+  seajs.use('weeditor/pinterest_grid', function(){
+    seajs.use('jquery-qrcode', function($){
+      seajs.use('myArticle/main', function(main){main.init()});
+    });  
+  }); 
+</script>
+
+{% endblock %}

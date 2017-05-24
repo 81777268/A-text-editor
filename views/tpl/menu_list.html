@@ -1,0 +1,29 @@
+<div class="nav_list">
+    {%for level1s in page%}
+     <div class="menu_li menu_li{{loop.index}}">
+        <span class="menu_btn menu_level1 {{(loop.index==1)|choose('active','')}}" id="{{level1s.id}}" data-category="{{loop.index}}" data-type="1" data-name="" > 
+             {%if loop.index==1 %}
+             <i class="iconfont icon-all1"></i>
+             {%elseif loop.index==2%}
+             <i class="iconfont icon-moban"></i>
+             {%else%}
+             <i class="iconfont icon-tupian"></i>
+             {%endif%}
+
+             {{level1s.text}}
+              <i class="iconfont js_fold {{(loop.index==1)|choose('icon-h3','icon-down')}}"></i>
+        </span>
+        <ul class="menu_level2">
+           {%for level2s in level1s.children %}
+             <li class="menu_level2_items" id="{{level2s.id}}" data-type="{{level2s.val}}" data-name="{{level2s.text}}">{{level2s.text}}
+                  <ul class="menu_level3" style="display: none;">
+                      {%for level3s in level2s.children%}
+                      <li id="{{level3s.id}}" data-type="{{level3s.val}}">{{level3s.text}}</li>
+                      {%endfor%}
+                  </ul>
+             </li>
+            {%endfor%}
+        </ul>
+     </div>
+    {%endfor%}
+</div>

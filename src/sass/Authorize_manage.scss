@@ -1,0 +1,200 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑;;
+}
+section{
+  padding: 36px;
+  .wrap{
+    background-color: #ffffff;
+    border: 1px solid #E0E0E2;
+    min-width: 980px;
+    .left_manage,
+    .right_adduser{
+
+    }
+    .left_manage{
+      height: 100%;
+      width: 29.6%;
+      border-right: 1px solid #E0E0E2;
+      padding: 24.5px 19.6px;
+      float: left;
+      .msg_show{
+        width: 100%;
+        height: 100%;
+        border: 1px solid #E0E0E2;
+        h4{
+          color: #353535;
+          height: 42px;
+          background-color:#E0E0E2;
+          padding-top: 10.5px;
+          padding-left: 10px;
+          font-size: 14px;
+        }
+        .username,
+        .reqtime{
+          span:first-child{
+            text-align: right;
+            width: 42%;
+            border-right: 1px solid #DDDDDD;
+            display: inline-block;
+            line-height: 12px;
+            padding-right: 8px;
+            margin-right: 8px;
+          }
+        }
+        .username{
+          margin-top: 38px;
+        }
+        .reqtime{
+          margin-top: 20px;
+        }
+        .longin_psw{
+          margin-top: 20px;
+          display: inline-block;
+          cursor: pointer;
+        }
+        .longin_psw{
+          color: #1778B3;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+    .right_adduser{
+      float: right;
+      width: 70.4%;
+      height: 100%;
+      .right_adduser_title{
+        height: 56px;
+        border-bottom: 1px solid #E0E0E2;
+        padding-top: 18.5px;
+        padding-left: 39.1px;
+        color: #4A4A4A;
+      }
+      .add_id{
+        border: 1px solid #1778B3;
+        height: 52px;
+        width: 146px;
+        margin: 30px 45px;
+        text-align: center;
+        line-height: 52px;
+        cursor: pointer;
+        i{
+          color: #1778B3;
+        }
+      }
+      .msg_table{
+        margin-left: 45px;
+        table{
+          border-collapse:collapse;
+
+          th{
+            background-color: #F2F2F2;
+          }
+          td,th{
+            height: 42px;
+            width: 196px;
+            border: 1px solid #E0E0E2;
+          }
+          td{
+            padding:0;
+            text-align: center;
+          }
+          .face_tx{
+            border-radius: 50%;
+            vertical-align: middle;
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+
+          }
+          .cancel{
+            color: #1778B3;
+            cursor: pointer;
+            display: none;
+          }
+        }
+
+      }
+    }
+  }
+}
+.container{
+  width: 100%;
+  height: 563px;
+  background-color: #ffffff;
+  border: 1px solid #E7E7EB;
+  .container_title{
+    margin: 0 auto;
+    width: 98%;
+    height: 40px;
+    border-bottom: 1px solid #E7E7EB;
+    margin-top: 20px;
+    position: relative;
+    span:first-child{
+      background-image: url('../images/wx_login.png');
+      height: 29px;
+      width: 29px;
+      display: inline-block;
+      background-size: cover;
+    }
+    span:last-child{
+      display: inline-block;
+      position: absolute;
+      line-height: 20px;
+      bottom: 10px;
+      left:40px
+    }
+  }
+  .container_content{
+    margin: 200px auto;
+    text-align: center;
+    .log_in_btn{
+      color: #0099FF;
+      cursor: pointer;
+    }
+  }
+}
+.errs{
+  display: inline-block;
+  padding-left: 0px;
+  position: absolute;
+  right: 120px;
+  top:100px;
+  height: 30px;
+  line-height: 30px;
+  color: red;
+  // display: none;
+}
+.errno{
+  display: inline-block;
+  padding-left: 0px;
+  position: absolute;
+  right: 130px;
+  top:210px;
+  height: 30px;
+  line-height: 30px;
+  color: red;
+  // display: none;
+}
+.errn{
+  display: inline-block;
+  padding-left: 0px;
+  position: absolute;
+  right: 100px;
+  top:145px;
+  height: 30px;
+  line-height: 30px;
+  color: red;
+  // display: none;
+}
+label{
+  white-space: normal;
+  width: 100px !important;
+  display:block;
+}
+.btn_primary{
+  position: relative;
+  right: -14px;
+}

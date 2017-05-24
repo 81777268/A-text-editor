@@ -1,0 +1,108 @@
+.我的图文-单图文
+my_single_article/page_list.do
+参数
+page 
+size 
+search
+
+{
+	code: 0,
+	msg: "成功",
+	data: {
+		cur_page: 0,
+		total_page: 1,
+		total: 1,
+		size: 10,
+		list: [{
+			update_time: 1493108732000,
+			cover_pic: "1",
+			task_total_num: 0,  //任务总数
+			failed_task_num: 0, //失败任务数
+			not_sync_task_num: 0, //未执行任务数
+			id: 1,
+			title: "1",
+			syncing_task_num: 0, //正在执行的任务数
+			success_task_num: 0  //成功的任务数
+		}]
+	},
+	success: true
+}
+
+.我的图文-多图文
+my_multi_article/page_list.do
+参数
+page 
+size 
+search
+
+
+{
+	code: 0,
+	msg: "成功",
+	data: {
+		cur_page: 0,
+		total_page: 1,
+		total: 3,
+		size: 10,
+		list: [{
+			update_time: "2017-04-25 17:07:34.0",
+			create_time: "2017-04-25 17:07:42.0",
+			group_id: 1,
+			task_total_num: 1,
+			failed_task_num: 0,
+			not_sync_task_num: 1,
+			articles: [{
+				update_time: 1493111278000,
+				group_id: 1,
+				cover_pic: "1",
+				index: 1,
+				id: 1,
+				title: "1"
+			}],
+			syncing_task_num: 0,
+			success_task_num: 0
+		}, {
+			update_time: "null",
+			create_time: "2017-04-26 10:03:45.0",
+			group_id: 342,
+			task_total_num: 0,
+			failed_task_num: 0,
+			not_sync_task_num: 0,
+			articles: [{
+				update_time: 1493108732000,
+				group_id: 342,
+				cover_pic: "1",
+				index: 0,
+				id: 5094,
+				title: "1"
+			}],
+			syncing_task_num: 0,
+			success_task_num: 0
+		}, {
+			update_time: "null",
+			create_time: "2017-04-26 10:09:52.0",
+			group_id: 344,
+			task_total_num: 0,
+			failed_task_num: 0,
+			not_sync_task_num: 0,
+			articles: [{
+				update_time: 1493108732000,
+				group_id: 344,
+				cover_pic: "1",
+				index: 0,
+				id: 5099,
+				title: "1"
+			}, {
+				update_time: 1493173931000,
+				group_id: 344,
+				cover_pic: "888",
+				index: 1,
+				id: 5100,
+				title: "888"
+			}],
+			syncing_task_num: 0,
+			success_task_num: 0
+		}]
+	},
+	success: true
+}

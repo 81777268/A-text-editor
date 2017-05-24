@@ -1,0 +1,50 @@
+.  热门文章搜索   network_material/search.do
+
+	收藏接口:
+	取消收藏借口:
+参数
+	search          //搜索关键字
+    content_type   //取值video text voice
+    date_range     //取值1h 2h 12h 24h 7d
+    search_date           //取值 2017-01-01
+	tags		   //标签,如：实时资讯,生活民生
+   	sort           //排序字段 read_num阅读数 fav_num点赞数  date日期
+   	page          //页面
+   	num           // 每页条数
+
+{
+	code: 0,
+	msg: "成功",
+	data: {
+		items: [
+			comment_num: 0,
+			date: "2017-03-13 23:58:00",
+			is_original: 0,
+			content_id: 31642613,
+			//封面图
+			thumb: "http://mmbiz.qpic.cn/mmbiz_jpg/OWR3SsX82QN1oMFxUuib2GMZSwVb1O99FhefXlib3ZdqMCIzCH85R1HZu8SnBKzNv5w7Uh07Uj4VwwkLObbZvs5w/0?wx_fmt=jpeg",
+			index: 2,
+			content_tags: "",
+			title: "为什么你穿高跟鞋会脚痛?因为这些小窍门你还不知道",
+			content: "",
+			fav_num: 0,
+			uid: "mza3njeyodmwmg-2650554300-2",
+			wechat_name: "女人必备手册",
+			read_num: 125,
+			content_type: "content",  
+			video_num: 0,     //视频数量
+			//文章地址
+			content_url: "http://mp.weixin.qq.com/s?__biz=MzA3NjEyODMwMg==&mid=2650554300&idx=2&sn=693cee17487fe9c03fead01939cf1f5e&chksm=876e96fdb0191feb536f95fe1f73ed5b730cb877a2fe525471b5528d200cd287711befb69d30#rd",
+			wechat_username: "gh_0fb9594a5bb8",//公众号原始id
+			index_name: null,
+			wechat_username_public: "wzhnrx",
+			voice_num: 0,
+			"collected":0//0是没有收藏  ，1 已收藏
+		],
+		total_num: 14599708,
+		total_pages: 1459971
+	}
+}
+
+
+

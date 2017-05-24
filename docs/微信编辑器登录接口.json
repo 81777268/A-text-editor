@@ -1,0 +1,78 @@
+
+
+1. 微信扫码登录   user/wx_login.do
+参数  
+	code  微信回调参数
+	state 微信回调参数
+
+
+返回结果码说明：
+0  登录成功   3004需要绑定账号  3001登录超时  其余错误
+
+返回结果：
+{
+	code: 0,
+	msg: "成功",
+	data: {
+		user_id: 1,
+		mem_id: 1,
+		nickname: "冰释",
+		head_img_url: "http://wx.qlogo.cn/mmopen/PiajxSqBRaEIY5H4vv2YSoRmPBRoIHWgqAkzQM78uerPqqd08yhS3MDIiaAUkN37VoqVeyibdiaL1hQu3yDmhQ0Wlw/0"
+	},
+	success: true
+}
+
+
+{
+	code: 3004,
+	msg: "成功",
+	data: "pre_code@@ac77ede32f584aa2bb36ab3920fcf9b5",
+	success: false
+}
+
+2. 注册新账号并绑定当前微信号  user/register.do
+参数 
+	pre_code  上一步data中返回
+	username  用户名
+	pwd   密码的base64编码
+
+{
+	code: 1001,
+	msg: "用户名已被占用",
+	success: false
+}
+
+{
+	code: 0,
+	msg: "成功",
+	data: {
+		user_id: 1,
+		mem_id: 1,
+		nickname: "冰释",
+		head_img_url: "http://wx.qlogo.cn/mmopen/PiajxSqBRaEIY5H4vv2YSoRmPBRoIHWgqAkzQM78uerPqqd08yhS3MDIiaAUkN37VoqVeyibdiaL1hQu3yDmhQ0Wlw/0"
+	},
+	success: true
+}
+3. 当前微信号绑定已有账号 user/bind.do
+参数 
+	pre_code  上一步data中返回
+	username  用户名
+	pwd   密码的base64编码
+
+{
+	code: 1001,
+	msg: "该账号不存在",
+	success: false
+}
+
+{
+	code: 0,
+	msg: "成功",
+	data: {
+		user_id: 1,
+		mem_id: 1,
+		nickname: "冰释",
+		head_img_url: "http://wx.qlogo.cn/mmopen/PiajxSqBRaEIY5H4vv2YSoRmPBRoIHWgqAkzQM78uerPqqd08yhS3MDIiaAUkN37VoqVeyibdiaL1hQu3yDmhQ0Wlw/0"
+	},
+	success: true
+}

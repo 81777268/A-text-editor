@@ -1,0 +1,69 @@
+{% extends '../layout/layout-layer-0.html' %}
+
+{%block css%}
+  <link rel="stylesheet" type="text/css" href="../css/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/login.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" href="../css/Authorize.css">
+{%endblock%}
+
+{% block content %}
+<section>
+<div class="wrap">
+  <div class="wx_left">
+    <div class="center">
+      <div></div>
+      <span>微信公众平台授权</span>
+
+    </div>
+    <span class="joinus">更多平台入驻中</span>
+  </div>
+  <div class="authorize_right">
+  <div class="d1">
+    <div>微信公众号平台授权</div>
+  </div>
+  <div class="d2">
+    <span>当您将公众号授权给WeMedia编辑器后，便可以在WeMedia编辑器上进行素材管理，内容同步与群发操作。
+    </span>
+    <span>公众号授权为平台方提供的正式应用，授权操作将跳转至平台方进行，XX编辑器没有权限记录您的任何账号及密码。 授权后，您可以随时取消授权。
+    </span>
+  </div>
+  <div class="d3">
+    <div>已授权的公众号</div>
+  </div>
+
+  {%for data in page%}
+  <div class="authorize_msg">
+    <div class="left_face">
+      <img src="{{data.head_img}}" alt="">
+    </div>
+    <div class="right_text">
+      <i>{{data.nick_name}}</i>
+      <i>{{data.alias}}</i>
+    </div>
+  </div>
+  {%endfor%}
+  <div class="d4" id="add_auth">
+    <span></span>
+    <i>授权新的公众号</i>
+  </div>
+  <div class="d5">
+    <a href="http://edit.newrank.cn/detail.html?uuid=07571F4633772FD01A2AE344E4F5F156">
+      如何取消微信授权？
+    </a>
+  </div>
+  </div>
+</div>
+
+
+
+
+</section>
+{% endblock %}
+
+{% block footerjs %}
+  {% parent %}
+  <script type="text/javascript">
+    seajs.use('auth/main', function(main){main.init()});
+</script>
+{% endblock %}

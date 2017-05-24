@@ -1,0 +1,106 @@
+{% extends '../layout/layout-layer-0.html' %} {%block css%}
+<link rel="stylesheet" type="text/css" href="../css/header.css">
+<link rel="stylesheet" type="text/css" href="../css/login.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" href="../css/Authorize_manage.css"> {%endblock%} {% block content %}
+
+<section>
+    <div class="wrap">
+        <div class="left_manage">
+            <div class="msg_show">
+                <h4>账号管理</h4>
+                <div class="username">
+                    <span>用户名</span>
+                    <span>{{ info.username }}</span>
+                </div>
+                <div class="reqtime">
+                    <span>注册时间</span>
+                    <span>{{info.register_time | date('Y-m-d H:m', -480, 'CCT') }}</span>
+                </div>
+                <span class="longin_psw">修改登录密码</span>
+            </div>
+        </div>
+        <div class="right_adduser">
+            <div class="right_adduser_title">
+                已绑定微信号
+            </div>
+            <div class="add_id">
+                <i class="iconfont icon-tianjia"></i><i>新增登录微信号</i>
+            </div>
+            <div class="msg_table">
+                <table>
+                    <tr>
+                        <th>微信号</th>
+                        <th>绑定时间</th>
+                        <th>操作</th>
+                    </tr>
+                    {%for data in page%}
+                    <tr>
+                        <td>
+                            <span class="face_tx" style="background:url({{data.head_img_url}});background-size:contain;"></span>
+                            <span>{{data.nickname}}</span>
+                        </td>
+                        <td>
+                            <span>{{data.bind_time|date('Y-m-d H:m', -480, 'CCT')}}</span>
+                        </td>
+                        <td>
+                            <span class="cancel" id="cancel" mem_id="{{data.id}}">取消绑定</span>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- //**********认证弹框start********* -->
+
+    <div class="modal-backdrop" id="modal-backdrop" style="display: none;"></div>
+    <div class="modal-dialog login-dialog" id="login-dialog" style="display: none;">
+
+        <div class="modal-content absoluted">
+            <a href="javascript:;" class="js-close js-close-dialog"><i class="fa fa-close" aria-hidden="true"></i></a>
+            <div class="modal-body">
+                <div class="bind_account_wrap" style="display: block;">
+                    <div class="title">修改密码</div>
+                    <div class="error_tip"></div>
+                    <ul>
+                        <li>
+                            <label>旧密码：</label>
+                            <div class="input_wrap"><input type="password" name="used_psw" value="" id="used_psw">
+                          </div>
+                          <span class="errs"></span>
+                        </li>
+                        <li>
+                            <label>新密码：</label>
+                            <div class="input_wrap"><input type="password" name="new_pwd" value="" id="new_pwd"></div>
+                            <span class="errn"></span>
+                        </li>
+                        <li class="pwd_confirm">
+                            <label>确认密码：</label>
+                            <div class="input_wrap"><input type="password" name="repeatpwd" value="" id="repeatpwd"></div>
+                            <span class="errno"></span>
+                        </li>
+                    </ul>
+                    <a href="javascript:;" class="btn_primary btn" id="submit_psw">确 定</a></div>
+            </div>
+            <div class="modal-foot"></div>
+        </div>
+    </div>
+    <!--  ************弹框end*****************-->
+
+
+
+
+
+
+</section>
+
+{% endblock %} {% block footerjs %} {% parent %}
+<script type="text/javascript">
+    seajs.use('Authorize_manage/Authorize_manage', function(Authorize_manage) {
+        Authorize_manage.init();
+    });
+</script>
+
+{% endblock %}

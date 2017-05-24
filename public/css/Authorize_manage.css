@@ -1,0 +1,229 @@
+@charset "UTF-8";
+/* line 1, ../../src/sass/Authorize_manage.scss */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑;
+}
+
+/* line 6, ../../src/sass/Authorize_manage.scss */
+section {
+  padding: 36px;
+}
+/* line 8, ../../src/sass/Authorize_manage.scss */
+section .wrap {
+  background-color: #ffffff;
+  border: 1px solid #E0E0E2;
+  min-width: 980px;
+}
+/* line 16, ../../src/sass/Authorize_manage.scss */
+section .wrap .left_manage {
+  height: 100%;
+  width: 29.6%;
+  border-right: 1px solid #E0E0E2;
+  padding: 24.5px 19.6px;
+  float: left;
+}
+/* line 22, ../../src/sass/Authorize_manage.scss */
+section .wrap .left_manage .msg_show {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #E0E0E2;
+}
+/* line 26, ../../src/sass/Authorize_manage.scss */
+section .wrap .left_manage .msg_show h4 {
+  color: #353535;
+  height: 42px;
+  background-color: #E0E0E2;
+  padding-top: 10.5px;
+  padding-left: 10px;
+  font-size: 14px;
+}
+/* line 36, ../../src/sass/Authorize_manage.scss */
+section .wrap .left_manage .msg_show .username span:first-child,
+section .wrap .left_manage .msg_show .reqtime span:first-child {
+  text-align: right;
+  width: 42%;
+  border-right: 1px solid #DDDDDD;
+  display: inline-block;
+  line-height: 12px;
+  padding-right: 8px;
+  margin-right: 8px;
+}
+/* line 46, ../../src/sass/Authorize_manage.scss */
+section .wrap .left_manage .msg_show .username {
+  margin-top: 38px;
+}
+/* line 49, ../../src/sass/Authorize_manage.scss */
+section .wrap .left_manage .msg_show .reqtime {
+  margin-top: 20px;
+}
+/* line 52, ../../src/sass/Authorize_manage.scss */
+section .wrap .left_manage .msg_show .longin_psw {
+  margin-top: 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+/* line 57, ../../src/sass/Authorize_manage.scss */
+section .wrap .left_manage .msg_show .longin_psw {
+  color: #1778B3;
+  width: 100%;
+  text-align: center;
+}
+/* line 64, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser {
+  float: right;
+  width: 70.4%;
+  height: 100%;
+}
+/* line 68, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .right_adduser_title {
+  height: 56px;
+  border-bottom: 1px solid #E0E0E2;
+  padding-top: 18.5px;
+  padding-left: 39.1px;
+  color: #4A4A4A;
+}
+/* line 75, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .add_id {
+  border: 1px solid #1778B3;
+  height: 52px;
+  width: 146px;
+  margin: 30px 45px;
+  text-align: center;
+  line-height: 52px;
+  cursor: pointer;
+}
+/* line 83, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .add_id i {
+  color: #1778B3;
+}
+/* line 87, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .msg_table {
+  margin-left: 45px;
+}
+/* line 89, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .msg_table table {
+  border-collapse: collapse;
+}
+/* line 92, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .msg_table table th {
+  background-color: #F2F2F2;
+}
+/* line 95, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .msg_table table td, section .wrap .right_adduser .msg_table table th {
+  height: 42px;
+  width: 196px;
+  border: 1px solid #E0E0E2;
+}
+/* line 100, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .msg_table table td {
+  padding: 0;
+  text-align: center;
+}
+/* line 104, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .msg_table table .face_tx {
+  border-radius: 50%;
+  vertical-align: middle;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+/* line 112, ../../src/sass/Authorize_manage.scss */
+section .wrap .right_adduser .msg_table table .cancel {
+  color: #1778B3;
+  cursor: pointer;
+  display: none;
+}
+
+/* line 123, ../../src/sass/Authorize_manage.scss */
+.container {
+  width: 100%;
+  height: 563px;
+  background-color: #ffffff;
+  border: 1px solid #E7E7EB;
+}
+/* line 128, ../../src/sass/Authorize_manage.scss */
+.container .container_title {
+  margin: 0 auto;
+  width: 98%;
+  height: 40px;
+  border-bottom: 1px solid #E7E7EB;
+  margin-top: 20px;
+  position: relative;
+}
+/* line 135, ../../src/sass/Authorize_manage.scss */
+.container .container_title span:first-child {
+  background-image: url("../images/wx_login.png");
+  height: 29px;
+  width: 29px;
+  display: inline-block;
+  background-size: cover;
+}
+/* line 142, ../../src/sass/Authorize_manage.scss */
+.container .container_title span:last-child {
+  display: inline-block;
+  position: absolute;
+  line-height: 20px;
+  bottom: 10px;
+  left: 40px;
+}
+/* line 150, ../../src/sass/Authorize_manage.scss */
+.container .container_content {
+  margin: 200px auto;
+  text-align: center;
+}
+/* line 153, ../../src/sass/Authorize_manage.scss */
+.container .container_content .log_in_btn {
+  color: #0099FF;
+  cursor: pointer;
+}
+
+/* line 159, ../../src/sass/Authorize_manage.scss */
+.errs {
+  display: inline-block;
+  padding-left: 0px;
+  position: absolute;
+  right: 120px;
+  top: 100px;
+  height: 30px;
+  line-height: 30px;
+  color: red;
+}
+
+/* line 170, ../../src/sass/Authorize_manage.scss */
+.errno {
+  display: inline-block;
+  padding-left: 0px;
+  position: absolute;
+  right: 130px;
+  top: 210px;
+  height: 30px;
+  line-height: 30px;
+  color: red;
+}
+
+/* line 181, ../../src/sass/Authorize_manage.scss */
+.errn {
+  display: inline-block;
+  padding-left: 0px;
+  position: absolute;
+  right: 100px;
+  top: 145px;
+  height: 30px;
+  line-height: 30px;
+  color: red;
+}
+
+/* line 192, ../../src/sass/Authorize_manage.scss */
+label {
+  white-space: normal;
+  width: 100px !important;
+  display: block;
+}
+
+/* line 197, ../../src/sass/Authorize_manage.scss */
+.btn_primary {
+  position: relative;
+  right: -14px;
+}

@@ -1,0 +1,16 @@
+ <input type="hidden" id="totalPage" value="{{page.total_page}}">
+{%if page.list.length==0%}
+<li class="no_data" style="width: 100%;text-align: center;">
+	<div class="none_pic"><img src="images/none.png" alt=""></div>
+	<p>暂无样式</p>
+</li>
+{%endif%}
+{%for items in page.list%}
+<li data-id="{{items.id}}" data-src="{{items.url}}" data-label="{{items.label}}">
+	<div class="pic_wrap" style="background: url({{items.url}}) no-repeat center center;background-size: cover;">
+	    <div class="opr_mask">
+	    	<a href="javascript:;" class="js_del_img"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+	    </div>
+	</div>
+</li>
+{%endfor%}

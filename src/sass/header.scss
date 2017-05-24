@@ -1,0 +1,68 @@
+@import 'base';
+.header{
+    width: 100%;
+	height: 55px;
+	background: $themColor;
+	color: $colorWhite;
+	padding: 0 10px;
+	line-height: 55px;
+	font-size: 12px;
+    .logo_wrap{
+         font-size: 16px;
+         cursor: pointer;
+    }
+	.main_top_right{
+		padding-right: 20px;
+	}
+	.navs{
+		margin-right: 15px;
+	}
+    .navs li{
+    	float: left;
+    	margin-right: 20px;
+        cursor: pointer;
+    }
+    .login_rgister{
+    	float: left;
+        position: relative;
+        cursor: pointer;
+        .icon{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            position: relative;
+            top:6px;
+        }
+    }
+    .user_infos{
+        position: relative;
+    	img{
+    		width: 30px;
+    		height: 30px;
+    		border-radius: 100%;
+    		margin-right: 5px;
+    		position: relative;
+    		top: 10px;
+    	}
+    }
+
+}
+.exit_wrap{
+    position: absolute;
+    top: 50px;
+    right: -18px;
+    z-index: 1010;
+    width: 150px;
+    box-shadow: 0 0px 9px #888888;
+    background: #fff;
+    text-align: center;
+    color: #222;
+    font-size: 14px;
+    border-radius: 5px;
+    li{
+        line-height: 40px;
+        border-bottom: 1px solid #E0E0E2;
+    }
+
+}

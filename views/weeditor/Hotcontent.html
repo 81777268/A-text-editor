@@ -1,0 +1,74 @@
+{% extends '../layout/layout-layer-0.html' %} {%block css%}
+<link rel="stylesheet" type="text/css" href="../css/header.css">
+<link rel="stylesheet" type="text/css" href="../css/login.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" href="../css/Hotcontent.css"> {%endblock%} {% block content %}
+
+<section>
+    <div class="main">
+        <div class="wrap">
+            <div class="navs nav_class" id="cl">
+                <div class="nav_class_title">
+                    <i></i>
+                    <span>分类</span>
+                </div>
+                <div class="nav_class_content" id="class"></div>
+            </div>
+            <div class="navs nav_time">
+                <div class="nav_time_title">
+                    <i></i>
+                    <span>时间</span>
+                </div>
+                <div class="nav_time_content">
+                    <input type="radio" name="time" id="Time2" value="" class="radio"><label for="Time2" class="radio" id="lasttime"></label><em id="id_2"></em>
+                </div>
+                <ul id="dateul">
+                </ul>
+            </div>
+            <div class="navs nav_order">
+                <div class="nav_order_title">
+                    <i></i>
+                    <span>排序</span>
+                </div>
+                <div class="nav_order_content" id="order">
+
+                </div>
+            </div>
+        </div>
+        <div class="hotbtn">
+            <div class="collectBtn">
+                <i></i>
+                <span>我的收藏</span>
+            </div>
+            <div class="log_in_no">
+                <span>该功能需要登录后才可以使用，<a href="#" id="log_inBtn">立即登录</a></span>
+            </div>
+            <div class="log_in_over">
+
+            </div>
+        </div>
+        <div class="hottext">
+            <div class="hottext_title">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="hottext_cot">
+
+            </div>
+            <div class="none_texts">
+              
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %} {% block footerjs %} {% parent %}
+<script type="text/javascript">
+    seajs.use('Hotcontent/Hotcontent', function(Hotcontent) {
+        Hotcontent.init()
+    });
+</script>
+
+{% endblock %}

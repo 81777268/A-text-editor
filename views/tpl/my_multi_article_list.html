@@ -1,0 +1,115 @@
+<!-- 多图文-star -->
+{%if page.list.length==0 %}
+   <div class="no_article">暂无图文消息</div>
+{%endif %}
+<div class="appmsg_list tab_body multi_msg_wrap" id="gallery-wrapper">
+      <!-- 一个图文-star -->
+      {%for items in page.list%}
+        <div class="js_appmsgitem newsItem" data-id="{{items.group_id}}">
+           <div class="appmsg has_first_cover multi">
+              <div class="appmsg_content">
+                 <div class="appmsg_info"><em class="appmsg_date">{{items.update_time|date('m-d H:m:s', -480, 'CCT')}}</em></div> 
+                 <!-- 同步信息-star -->
+                <div class="syncDescConPad">
+                  <ul class="syncDescCon">
+                    <li class="syncDesc syncDescTotal" data-status=0>
+                      同步总计:<span class="syncDescTotalWord">{{items.task_total_num}}</span>
+                    </li>
+                    <li class="syncDesc syncDescSuc" data-status=3>
+                      成功:<span class="syncDescSucWord">{{items.success_task_num}}</span>
+                    </li>
+                    <li class="syncDesc syncDescFail" data-status=4>
+                      失败:<span class="syncDescFailWord">{{items.failed_task_num}}</span>
+                    </li>
+                    <li class="syncDesc syncingDesc">
+                      同步中:<span class="syncingDescWord" data-status=2>{{items.syncing_task_num}}</span>
+                    </li>
+                  </ul>
+                </div>
+                 <!-- 同步信息-end -->
+                 {%for articles in items.articles%}
+                 {%if loop.index==1%}
+                <div data-idx="{{loop.index}}" class="cover_appmsg_item js_article_item" data-uuid="{{articles.uuid}}">
+                      <h4 class="appmsg_title js_title">
+                        <a href="" target="_blank">{{articles.title}}</a>
+                      </h4>
+                      <div class="appmsg_thumb_wrp" style="background-image:url({{articles.cover_pic}})"></div>
+                      <a class="edit_mask preview_mask js_preview" data-idx="{{loop.index}}">
+                         <div class="edit_mask_content">
+                              <div class="preview_btn_wrap">
+                                <span class="preview_btn js_pcView" data-uuid="{{articles.uuid}}">
+                                   <i class="iconfont icon-pczhuanhuan"></i>
+                                </span>
+                                <p>pc端预览</p>
+                             </div>
+                          </div>
+                          <span class="vm_box"></span>
+                       </a>
+                 </div>
+                 {%else%}
+                 <div data-idx="{{loop.index}}" class="appmsg_item has_cover js_article_item" data-uuid="{{articles.uuid}}">
+                      <div class="appmsg_thumb_wrp" style="background-image:url({{articles.cover_pic}});"></div>
+                      <h4 class="appmsg_title js_title">
+                        <a data-idx="{{loop.index}}">{{articles.title}}</a>       
+                      </h4>
+                      <a class="edit_mask preview_mask js_preview" data-idx="{{loop.index}}">
+                         <div class="edit_mask_content">
+                               <div class="preview_btn_wrap">
+                                  <span class="preview_btn js_pcView" data-uuid="{{articles.uuid}}">
+                                     <i class="iconfont icon-pczhuanhuan"></i>
+                                  </span>
+                                  <p>pc端预览</p>
+                               </div>
+                          </div>
+                          <span class="vm_box"></span>
+                       </a>
+                 </div>
+                 {%endif%}
+                 {%endfor%}
+
+            <div class="appmsg_opr" data-id="{{items.group_id}}">
+               <ul class="clearfix">
+                  <li class="appmsg_opr_item">
+                     <a target="_blank" class="js_tooltip edit_btn" data-tooltip="编辑" data-groupid="{{items.group_id}}">
+                       <i class="iconfont icon-edit"></i>
+                       <div class="tooltip">
+                          <div class="tooltip_inner">编辑</div>
+                          <i class="tooltip_arrow"></i>
+                       </div>
+                     </a>
+                  </li>
+                  <li class="appmsg_opr_item">
+                     <a target="_blank" class="js_tooltip del_btn" data-tooltip="删除"  data-id="{{items.group_id}}"><i class="iconfont icon-shanchu"></i>
+                       <div class="tooltip">
+                          <div class="tooltip_inner">删除</div>
+                          <i class="tooltip_arrow"></i>
+                       </div>
+                     </a>
+                  </li>
+                  <li class="appmsg_opr_item">
+                      <a class="js_del js_tooltip preview_btn js_contentView" data-groupid="{{items.group_id}}" href="javascript:void(0);" data-tooltip="预览"><i class="iconfont icon-yulan"></i>
+                         <div class="tooltip">
+                            <div class="tooltip_inner">预览</div>
+                            <i class="tooltip_arrow"></i>
+                         </div>
+                      </a>
+                 </li>
+                  <li class="appmsg_opr_item">
+                      <a class="js_del js_tooltip sync_btn" data-id="{{items.group_id}}" href="javascript:void(0);" data-tooltip="同步"><i class="iconfont icon-shuaxin1"></i>
+                        <div class="tooltip">
+                            <div class="tooltip_inner">同步</div>
+                            <i class="tooltip_arrow"></i>
+                         </div>
+                      </a></li>
+               </ul>
+            </div>
+
+           </div>
+       </div>
+      </div> 
+       {%endfor%}
+       <!--一个图文-end  -->
+
+</div>
+<input type="hidden" id="total_num" value="{{page.total}}">
+<!-- 单图文-end -->  

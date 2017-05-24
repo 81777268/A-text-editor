@@ -1,0 +1,24 @@
+ <input type="hidden" id="totalPage" value="{{page.total_page}}">
+{%if page.list.length==0%}
+<li class="no_data" style="width: 100%;">
+	<div class="none_pic"><img src="images/none.png" alt=""></div>
+	<p>暂无样式</p>
+</li>
+{%endif%}
+{%for items in page.list%}
+<li data-id="{{items.id}}" data-collected="{{items.collected}}">
+   <div class="inner_con">
+        {%if items.collected==0%}
+         <a class="js_collectedThis collectedThis" data-type="0" title="收藏"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+       {%else%}
+          <a class="collectedThis" title="已收藏" data-type="0"><i class="fa fa-heart" aria-hidden="true"></i></a>
+       {%endif%}
+        <div class="template-mask"></div>
+        <div class="template-oprs">
+            <a href="javascript:;" class="opr_btn js_split_template" title="拆分使用"><i class="iconfont icon-icon"></i></a>
+            <a href="javascript:;" class="opr_btn js_use_all" title="整套使用"><i class="iconfont icon-all2"></i></a>
+        </div>
+        <div class="cover_img" style="background: url({{items.url}}) no-repeat center center;background-size:cover;"></div>
+    </div>
+</li>
+{%endfor%}

@@ -1,0 +1,20 @@
+ <input type="hidden" id="totalPage" value="{{page.total_page}}">
+{%if page.list.length==0%}
+<li class="no_data" style="width: 100%;">
+	<div class="none_pic"><img src="images/none.png" alt=""></div>
+	<p>暂无样式</p>
+</li>
+{%endif%}
+{%for items in page.list%}
+<li data-id="{{items.id}}">
+   <div class="inner_con">
+        <div class="template-mask"></div>
+        <div class="template-oprs">
+            <a href="javascript:;" class="opr_btn js_use_all" title="使用" style="margin-right: 0;">使用</a>
+            <span class="js_delmyTemplate"><i class="iconfont icon-shanchu"></i></span>
+        </div>
+        <div class="cover_img" style="overflow: hidden;">{{items.actual_content}}</div>
+
+   </div>
+</li>
+{%endfor%}

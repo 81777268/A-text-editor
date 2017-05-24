@@ -1,0 +1,66 @@
+.修改密码
+user/modify_pwd.do
+参数
+    old_pwd   旧密码（MD5值）
+    new_pwd   新密码（MD5值）
+
+{
+    code: 0,
+    msg: "成功",
+    success: true
+}
+
+.获取用户信息
+user/info.do
+参数
+    无
+
+{
+    code: 0,
+    msg: "成功",
+    success: true,
+    data: {
+        username:"admin",
+        register_time:12694879485
+    }
+}
+
+.获取绑定的微信号列表
+user/bind_wx_list.do
+参数
+    无
+
+{
+    code: 0,
+    msg: "成功",
+    success: true,
+    data: [
+        {
+            id: 1,
+            open_id: "oQc-G0u3O2gLYR3kYJJ0AsyLChx4",
+            unionid: "o4iKCuGO0VpZLHyTx20RUm-Q4hiA",
+            nickname: "冰释",
+            sex: 1,
+            country: "中国",
+            province: "北京",
+            city: "海淀",
+            language: "zh_CN",
+            head_img_url: "http://wx.qlogo.cn/mmopen/PiajxSqBRaEIY5H4vv2YSoRmPBRoIHWgqAkzQM78uerPqqd08yhS3MDIiaAUkN37VoqVeyibdiaL1hQu3yDmhQ0Wlw/0",
+            privilege: null,
+            create_time: 1493018843000,
+            update_time: 1495085359000,
+            bind_time:时间戳
+        }
+    ]
+}
+
+
+. 取消微信号绑定
+user/unbind_wx.do
+参数 mem_id     
+
+{
+    code: 0,
+    msg: "成功",
+    success: true
+}

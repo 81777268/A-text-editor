@@ -1,0 +1,13 @@
+ <input type="hidden" id="totalPage" value="{{page.total_page}}">
+{%if page.length==0%}
+<li class="no_data" style="width: 100%;text-align: center;">
+	<div class="none_pic"><img src="images/none.png" alt=""></div>
+	<p>暂无样式</p>
+</li>
+{%endif%}
+{%for items in page%}
+<li data-src="{{items}}" data-idx="{{loop.index}}">
+	<div class="pic_wrap" style="background: url({{items}}) no-repeat center center;background-size: cover;">
+	</div>
+</li>
+{%endfor%}

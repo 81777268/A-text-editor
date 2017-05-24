@@ -1,0 +1,203 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> {% block title %}{% endblock %} </title>
+{% block meta %}
+{% spaceless %}
+  <meta name="renderer" content="webkit">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" type="text/css" href="../css/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+{% endspaceless %}
+{% endblock %}
+{% block css %}{% endblock %}
+{% block headerjs %}{% endblock %}
+  <script type="text/javascript">
+    /**
+      从url中获取单个参数
+      示例: var app_info_id = getQueryByName("app_info_id");
+    **/
+    window.getQueryByName = function(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      if(!window.location.search){
+        return null;
+      }
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
+    }
+    String.prototype.format = function(args) {
+      if (arguments.length > 0) {
+        var result = this;
+        if (arguments.length == 1 && typeof(args) == "object") {
+          for (var key in args) {
+            var reg = new RegExp("({" + key + "})", "g");
+            result = result.replace(reg, args[key]);
+          }
+        } else {
+          for (var i = 0; i < arguments.length; i++) {
+            if (arguments[i] == undefined) {
+              return "";
+            } else {
+              var reg = new RegExp("({[" + i + "]})", "g");
+              result = result.replace(reg, arguments[i]);
+            }
+          }
+        }
+        return result;
+      } else {
+        return this;
+      }
+    }
+
+    window.showLoginCode = function(){
+      var obj = new WxLogin({
+        id:"login_container",
+        appid: "wx1bf129440f4886d5",
+        scope: "snsapi_login",
+        redirect_uri: window.location.href,
+        state: "wx_login",
+        style: "white",
+        href: "https://m.dengqiuti.com/login.css"
+      });
+
+    }
+    window.isLogin = function(){
+      if($("#is_login").val() == "") return -1;
+      return $("#is_login").val() == "true";
+    }
+
+    window.checkLogin = function(){
+      var is_login = isLogin();
+      if(!is_login){
+        showLoginDialog();
+      }
+      return is_login;
+    }
+    window.showLoginDialog = function(){
+      if($("#login_container").html().trim()==""){
+        showLoginCode();
+      }
+      $(".modal-backdrop").show();
+      $(".login-dialog").show();
+    }
+    window.setLogin = function(bool){
+      $("#is_login").val(bool);
+    }
+    window.isAdmin = function(){
+      return "1"==$(".user_infos").attr("data-usertype");
+    }
+  </script>
+</head>
+<body>
+
+{%block head %}
+<!-- 头部-star -->
+<div class="main_top header clearfix">
+   <input type="hidden" value="{{is_login}}" id="is_login" />
+   <div class="logo_wrap fl">文案编辑器</div>
+   <div class="main_top_right fr clearfix">
+       <ul class="navs fl">
+          <li id="hot_article">热门文章</li>
+          <li id="my_article">我的内容</li>
+          <li id="auth_manage">授权管理</li>
+       </ul>
+       <div class="login_rgister">
+          <a {{(wx_nick_name!=null)|ifTrueHide}} id="wx_login_btn">
+             <span class="icon"><img src="images/wx_icon.png" alt=""></span> <span class="js_login">微信登录</span>
+          </a>
+          <a class="user_infos" {{(wx_nick_name==null)|ifTrueHide}} data-usertype={{user_type}}>
+            <img id="user_head_img" src="{{wx_head_img}}" alt="" width="20px">
+            <span id="user_nickname">{{wx_nick_name}}</span>
+          </a>
+          <ul class="exit_wrap" style="display: none">
+            <li id="logout">退出</li>
+            <li id="authorize_manage">账号管理</li>
+          </ul>
+       </div>
+   </div>
+</div>
+<!-- 头部-end -->
+{%endblock%}
+
+{%block content%}
+{%endblock%}
+
+{%block foot%}
+<div class="main_bottom footer">
+  copyright @ 2017  weMedia编辑器 版权所有京ICP备16050405号-1
+</div>
+{%endblock%}
+<!-- 扫码登陆弹框 -->
+
+<div class="modal-backdrop" style="display: none;"></div>
+<div class="modal-dialog login-dialog" style="display: none;">
+  <div class="modal-content absoluted">
+      <a href="javascript:;" class="js-close js-close-dialog"><i class="fa fa-close" aria-hidden="true"></i></a>
+    <div class="modal-body">
+        <!-- 扫码登陆-star -->
+      <div class="code_wrap" id="login_container" ></div>
+            <!-- 扫码登陆-end -->
+            <!-- 绑定新账号-star -->
+            <div class="bind_account_wrap" style="display: none;">
+               <div class="title">创建账号</div>
+                <div class="error_tip"></div>
+               <ul>
+                  <li>
+                     <label>用户名：</label>
+                     <div class="input_wrap"><input type="text" name="username"></div>
+                  </li>
+                   <li>
+                     <label>密码：</label>
+                     <div class="input_wrap"><input type="password" name="pwd"></div>
+                  </li>
+                  <li class="pwd_confirm">
+                     <label>确认密码：</label>
+                     <div class="input_wrap"><input type="password" name="repeatpwd"></div>
+                  </li>
+               </ul>
+
+               <a href="javascript:;" class="btn_primary btn" id="bindSure">确 定</a>
+
+                <div class="bind_tip has_account_tip">
+                  已有账号？<a href="javascript:;" class="js_fast_bind">立即绑定</a>
+               </div>
+                <div class="bind_tip no_account_tip">
+                  没有账号？<a href="javascript:;" class="js_fast_creat">立即创建</a>
+               </div>
+
+
+            </div>
+            <!-- 绑定新账号-end -->
+    </div>
+    <div class="modal-foot"></div>
+  </div>
+</div>
+{% block footerjs %}
+{% spaceless %}
+<!-- 底部脚本 -->
+<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" id="jweixin"></script>
+<script type="text/javascript" src="../lib/js/core.js" id="seajsnode"></script>
+
+<script type="text/javascript">
+
+  seajs.config({
+    base: "/js",
+    alias:{
+      "jquery-qrcode":"/lib/jquery.qrcode.min.js"
+    }
+  });
+
+  seajs.use('common/header', function(main){main.init(); });
+</script>
+{% endspaceless %}
+{% endblock %}
+</body>
+</html>

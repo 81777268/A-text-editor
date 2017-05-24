@@ -1,0 +1,114 @@
+$fontStack: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif !important;
+$themColor:#666;
+$primaryColor: #333;
+$colorWhite:#fff;
+$baseGreen:#1AAD19;
+$birghtBlue:#2096de;
+$errorColor:#f24d4d;
+$successColor:#5eb95e;
+$borderColor:#E0E0E2;
+$inputColor:#e7e7eb;
+$hoverColor:#1778B3;
+$pink:#FF6666;
+$baseBlank:#4A4A4A;
+$baseBlue:#1778B3;
+::-webkit-scrollbar {width:8px;margin-right:1px;} /* 这是针对缺省样式 (必须的) */
+::-webkit-scrollbar-track {background-color: #e0e0e0;} /* 滚动条的滑轨背景颜色 */
+::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0.2);} /* 滑块颜色 */
+::-webkit-scrollbar-button {background-color:#e0e0e0;} /* 滑轨两头的监听按钮颜色 */
+::-webkit-scrollbar-corner {background-color: black;} /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+@mixin box-sizing ($sizing) {
+	-webkit-box-sizing:$sizing;     
+	-moz-box-sizing:$sizing;
+	-ms-box-sizing:$sizing;
+	-o-box-sizing:$sizing;
+	    box-sizing:$sizing;
+}
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+	@include box-sizing(border-box);
+}
+body{
+	font-family: $fontStack;
+    font-size: 14px;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+    visibility: hidden;
+}
+.fl{float: left;}
+.fr{float: right;}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+ul li{
+    list-style: none;
+}
+i,em{
+    font-style: normal;
+}
+input,select,textarea{
+    outline: none;
+    padding: 0 10px;
+    font-size: 12px;
+}
+.err_tips {
+    color: #e15f63;
+    font-size: 13px;
+    display: none;
+}
+img{max-width: 100%;}
+.btn {
+    min-width: 100px;
+    display: inline-block;
+    overflow: visible;
+    padding: 0 22px;
+    height: 32px;
+    line-height: 32px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    @include border-radius(0);
+    font-size: 14px;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    @include box-sizing(content-box);
+}
+.btn_primary {
+    background:$baseBlue;
+    color: #fff;
+}
+.btn_primary:hover {
+    background:$birghtBlue;
+    color: #fff;
+}
+.btn_default {
+  background-color: #fff;
+  color: #222;
+  border-color: #E0E0E2;
+}
+
+.btn_default:hover {
+  background-color: #e7e7eb;
+  color: #222;
+}
+
+.base_icons{
+  background: url(../images/base_icons.png) no-repeat center top;
+
+}

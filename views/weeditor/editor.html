@@ -1,0 +1,351 @@
+{% extends '../layout/layout-layer-0.html' %}
+
+{%block css%}
+  <link rel="stylesheet" type="text/css" href="../css/spectrum.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../css/weeditor.css">
+  <link href="../css/weme_editor.css" rel="stylesheet" type="text/css" />
+   <style type="text/css">
+        .otf-poptools span {margin: 0 5px;cursor: pointer;font-size: 12px; }
+    </style>
+{%endblock%}
+
+{% block content %}
+<!-- main_body-star -->
+ <div class="main_body clearfix">
+    <input type="hidden" id="article_uuid">
+     <!-- 左侧-star -->
+     <div class="selectWrapper clearfix">
+          <!-- 菜单列表-star -->
+          <div class="select-menu">
+              <div class="js_menuListWrap"></div>
+              <div class="copyright_info">
+                  copyright@2017 <br>文案编辑器 版权所有 <br>京ICP备16050405号-1
+              </div>
+          </div>
+         <!-- 菜单列表-end -->
+          <div class="select-show">
+             <div class="inner">
+                 <!-- 样式头部选择区-star -->
+                 <div class="select-show-top">
+                     <div class="style_select_wrap clearfix">
+                        <div class="fl">
+                            <a class="js_fileter">
+                              <i class="iconfont icon-shiliangzhinengduixiang2"></i>
+                              <div class="third_select_wrap menu_level3">
+                                 <ul></ul>
+                               </div>
+                            </a>
+                            <span>主题色：</span>
+                            <a class="js_color_picker">
+                               <input id="full" style="display: none;" />
+                            </a>
+                            <a class="js_reset_color"><i class="iconfont icon-undo"></i></a>
+                        </div>
+                        <div class="fr" style="position: relative;top: 4px;">
+                          <a class="js_mycollects" data-isReqStyle="1"><i class="fa fa-heart-o" aria-hidden="true"></i>收藏</a>
+                        </div>
+                      </div>
+
+                      <div class="template_select_wrap" style="display: none;">
+                          <ul class="clearfix">
+                            <li class="cur"><a class="js_curtemp"></a></li>
+                            <li class="js_mycollects" data-isReqStyle="0"><a id="templateCollection">收藏</a></li>
+                            <li><a>自定义</a></li>
+                          </ul>
+                          <div class="close_template">模板拆分使用
+                            <a href="javascript:;" class="js_close_template">
+                              <i class="iconfont icon-close1"></i></a>
+                          </div>
+                      </div>
+
+                      <div class="img_tab_head clearfix img_select_wrap" style="display: none;">
+                         <div class="tab_btn cur js_online_imgs"><a>在线图库</a></div>
+                         <div class="tab_btn js_my_imgs"><a>我的图库</a></div>
+                      </div>
+                 </div>
+                 <!-- 样式头部选择区-end -->
+                 <!-- 样式列表区-star -->
+                 <div class="styleShow">
+                     <!-- 图片检索区-star -->
+                     <div class="img_search_wrap" style="display: none;">
+                          <div class="upload_img_wrap search_options">
+                                <a href="javascript:;" class="btn btn_primary js_open_upload">上传图片</a>
+                           </div>
+                           <div class="img_search_bar clearfix search_options">
+                               <div style="height: 34px;">
+                                   <!-- <div class="select_wrap">
+                                        <select name="" id="">
+                                            <option value="0">类型</option>
+                                            <option value="1">1111</option>
+                                        </select>
+                                   </div> -->
+                                   <div class="search_wrap fr">
+                                       <div class="input_box">
+                                           <input type="text" placeholder="风景" id="imgKeyWord">
+                                       </div>
+                                       <span class="search_btn js_searchImg"><i class="iconfont icon-search01"></i></span>
+                                   </div>
+                                </div>
+                           </div>
+                          
+                      </div>
+                     <!-- 图片检索区-end-->
+                     <!-- 素材展示区-sar -->
+                     <div class="materialWrap">
+                          
+                     </div>
+                     <!-- 素材展示区-end -->
+                     <!-- 展示单个模板-star -->
+                     <div class="template_content"></div>
+                     <!-- 展示单个模板-end -->
+                     
+                 </div>
+                 <!-- 样式列表区-end-->
+               </div>
+          </div>
+     </div>
+    <!-- 左侧-end -->
+    
+     <!-- 编辑器-star -->
+      <div class="editorWrapper" >
+          <script id="editor" type="text/plain" style="width:500px;height:100%;"> </script>
+          <ul class="quickeActions">
+                 <li id="copy-editor-html"><i class="iconfont icon-fuzhi"></i>复制</li>
+                 <li id="save-template"><i class="iconfont icon-gridview"></i>存为模板</li>
+                 <li id="clear-editor"><i class="iconfont icon-shanchu1"></i>清空</li>
+                 <li id="preViewArctile"><i class="iconfont icon-telephoneview"></i>预览</li>
+                 
+          </ul>
+     </div>
+      <!-- 编辑器-end -->
+
+    <!-- 发布区-star -->
+    <div class="publishWrapper" style="display: block;">
+        <ul>
+           <li>
+              <div class="label"><i class="iconfont icon-biaoti"></i>标题</div>
+              <div class="input_wrap">
+                <input type="text" id="title" class="pub_input" data-max="64">
+                <em class="frm_counter">0/64</em>
+              </div>
+           </li>
+           <li>
+              <div class="label"><i class="iconfont icon-zuozhe"></i>作者</div>
+              <div class="input_wrap">
+                <input type="text" id="author" class="pub_input" data-max="8">
+                <em class="frm_counter">0/8</em>
+              </div>
+           </li>
+           <li>
+              <div class="label"><i class="iconfont icon-tubiao-"></i>封面<span class="tip">（建议尺寸：900像素 x 500像素）</span></div>
+              <div class="upload_cover" id="js_setCoverPic" style="background:#e6e6e6 url() no-repeat center center;background-size: cover;">
+                   <span class="js_upload_cover">
+                       <i class="iconfont icon-tianjia"></i>
+                       <!-- <input type="file" multiple="multiple" name="imagesUp" id="file" class="imagesUp" > -->
+                       <input type="hidden" name="coverPic" id="coverPic"/>
+                   </span>
+                   <span class="js_del_cover"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+              </div>
+           </li>
+           <li>
+              <div class="label"><i class="iconfont icon-ceshizhaiyao"></i>摘要</div>
+              <div class="input_wrap abstract_wrap">
+                  <textarea name="" id="digest" class="pub_input" data-max="20"></textarea>
+                  <em class="frm_counter">0/120</em>
+              </div>
+           </li>
+           <li> 
+               <div class="label"><i class="iconfont icon-lianjie"></i>原文链接</div>
+               <div class="input_wrap">
+                   <input type="text" id="content_source_url" value="">
+               </div>
+           </li>
+           <li>
+             <div class="label"><i class="iconfont icon-laiyuan"></i>文章归属</div>
+              <div class="input_wrap">
+                  <select name="" id="ascription">
+                    <option></option>
+                  </select>
+               </div>
+           </li>
+           
+        </ul>
+         <a href="javascript:;" class="btn btn_primary js_saveArticle">
+         <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>保存文章</a>
+    </div>
+    <!-- 发布区-end -->
+          
+</div>
+<!-- main_body-end -->
+<!-- 图片上传弹框-star -->
+<div class="modal-dialog uploadImgDialog" style="display:none;">
+  <div class="modal-content absoluted">
+      <a href="javascript:;" class="js-close js-close-dialog"><i class="iconfont icon-close1"></i></a>
+      <div class="modal-head">图片上传</div>
+      <div class="modal-body">
+         <div class="upload_body">
+            <div class="warn_Wrap"> 请选择要上传的文件！</div>
+           <ul class="upload_head clearfix">
+              <li class="cur" data-type="1">本地上传</li>
+              <li class="tab_baiduImg" data-type="1">网络图片</li>
+              <li class="tab_myImgs js_getMyImgs" data-type="2">本地图片</li>
+           </ul>
+             <div class="img_con img_con1" style="display: block;">
+                 <div class="upload_imgs clearfix">
+                     <ul class="clearfix" style="float: left;" id="imgViewWrap" num="0">
+                          <!-- <li class="uploader_file">
+                            <img class="imgs" src='http://img95.699pic.com/pic135editor/50017/1510.jpg?imageView2/2/w/200'/>
+                            <div class="selected_mask"><div class="selected_mask_icon"></div></div>
+                         </li> -->
+                     </ul>
+                     <!-- 文件上传按钮-star -->
+                     <div class="upload_picker absoluted">
+                        <span class="upload_area" >
+                             <a id="" class="js_imageupload">
+                                <i class="iconfont icon-bendishangchuan"></i>
+                              </a>
+                              <input type="file" multiple="multiple" name="imagesUp" class="imagesUp" id="imagesUp">
+                        </span>
+                        <div class="tip">点击选择图片获奖图片拖入进框内单词最多可选10张</div>
+                      </div> 
+                      <!-- 文件上传按钮-end-->
+                 </div>
+             </div>
+             <!-- 百度搜索-star -->
+             <div class="img_con" >
+                <div class="online_search_wrap">
+                   <ul class="ul_panl">
+                      <li class="col">
+                         <label>图片地址</label>
+                         <div class="input_wrap">
+                            <input type="text" id="imgUrl">
+                         </div>
+                      </li>
+                      <li class="col">
+                         <label>图片预览</label>
+                         <div class="input_wrap upload_imgs">
+                           <ul class="clearfix" id="onlineImgVeiw">
+                               <li class="uploader_file">
+                                <img src="" alt="">
+                                <div class="selected_mask"><div class="selected_mask_icon"></div></div>
+                              </li> 
+                            </ul>
+
+                         </div>
+                      </li>
+                   </ul>
+                </div>
+             </div>
+             <!-- 百度搜索-end -->
+             <!-- 本地图片-star -->
+             <div class="img_con" >
+                <div class="upload_imgs clearfix">
+                  <ul class="clearfix myimg_select_wrap" id="myimg_select_wrap">
+                      <!-- <li class="uploader_file">
+                        <img class="imgs" src='http://img95.699pic.com/pic135editor/50017/1510.jpg?imageView2/2/w/200'/>
+                        <div class="selected_mask"><div class="selected_mask_icon"></div></div>
+                     </li>  -->
+                  </ul>
+                </div>
+             </div>
+             <!-- 本地图片-end -->
+
+         </div>
+      </div>
+    <div class="modal-foot">
+        <a href="javascript:;" class="btn btn_default js-close-dialog">取消</a>
+        <a href="javascript:;" class="btn btn_primary" id="imgUpSure">确定</a>
+    </div>
+  </div>
+</div>
+<!-- 图片上传弹框-end-->
+
+
+<!-- 存为模板对话框-star -->
+<div class="modal-dialog saveTemplateDialog" style="display: none;">
+  <div class="modal-content absoluted small">
+      <a href="javascript:;" class="js-close js-close-dialog"><i class="iconfont icon-close1"></i></a>
+      <div class="modal-head">存为模板</div>
+      <div class="modal-body">
+         <div class="temp_name_wrap">
+             <div style="margin: 10px 0;"><span>模板名称：</span><input type="text" id="myTempName"></div>
+             <div class="err_tips">请输入模板名称！</div>
+         </div>
+         
+      </div>
+      <div class="modal-foot">
+          <a href="javascript:;" class="btn btn_default js-close-dialog">取消</a>
+          <a href="javascript:;" class="btn btn_primary" id="saveAsTemplate">确定</a>
+      </div>
+  </div>
+</div>
+<!-- 存为模板对话框-end -->
+
+<!-- 预览-star -->
+<div class="wx_phone_preview_wrp jsPhoneView" style="display: none;">
+
+   <div class="wx_phone_preview">
+      <span class="close_PhoneView"><i class="iconfont icon-close1"></i></span>
+      <div class="wx_phone jsPhoneViewMain">
+        <div class="wx_phone_bd">
+           <div class="phone_view_wrap">
+           </div>
+        </div>
+      </div>
+   </div>
+   <div class="mask"></div>
+</div>       
+<!-- 预览-end -->
+
+<!-- 导入图文-star -->
+<div class="modal-dialog importArticleDialog" style="display: none;">
+  <div class="modal-content absoluted large">
+      <a href="javascript:;" class="js-close js-close-dialog"><i class="iconfont icon-close1"></i></a>
+      <div class="modal-head">导入图文</div>
+      <div class="modal-body">
+         <div class="article_link_wrap">
+             <div>微信素材链接</div>
+             <div class="frm_controls">
+                 <div class="frm_input_box" style="width: 400px;">
+                   <input placeholder="" class="frm_input" id="articleLink">
+                </div>
+                <div class="err_tips">请输入微信素材链接！</div>
+            </div>
+         </div>
+      </div>
+      <div class="modal-foot">
+          <a href="javascript:;" class="btn btn_default js-close-dialog">取消</a>
+          <a href="javascript:;" class="btn btn_primary" id="importArticleSure">确定</a>
+      </div>
+  </div>
+</div>
+<!-- 导入图文-end -->  
+
+{% endblock %}
+
+{%block foot%}
+{%endblock%}
+
+{% block footerjs %}
+{% parent %}
+ 
+<script type="text/javascript">
+
+window.UEDITOR_HOME_URL = '/lib/js/ueditor/';
+  seajs.use('/lib/js/ueditor/ueditor.config.js', function(){
+     seajs.use('/lib/js/ueditor/ueditor.all.js', function(){
+           seajs.use('/lib/js/ueditor/third-party/zeroclipboard/ZeroClipboard.min.js', function(){
+               seajs.use('/lib/js/ueditor/lang/zh-cn/zh-cn.js', function(){
+                    seajs.use('weeditor/spectrum.js', function(){
+                        seajs.use('weeditor/docs.js', function(){
+                             seajs.use('weeditor/editor', function(main){main.init(); });
+                        });
+                    });
+              });
+          });
+     });
+ });
+</script> 
+
+{% endblock %}

@@ -1,0 +1,54 @@
+
+* {
+    max-width: 100%!important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box!important;
+    -webkit-box-sizing: border-box!important;
+    word-wrap: break-word!important;
+}
+/*可以在这里添加你自己的css*/
+::-webkit-scrollbar {width:8px;margin-right:1px;} /* 这是针对缺省样式 (必须的) */
+::-webkit-scrollbar-track {background-color: #e0e0e0;} /* 滚动条的滑轨背景颜色 */
+::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0.2);} /* 滑块颜色 */
+::-webkit-scrollbar-button {background-color:#e0e0e0;} /* 滑轨两头的监听按钮颜色 */
+::-webkit-scrollbar-corner {background-color: black;} /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+
+ul li{list-style: none;}
+.wemeEditor{position: relative;}
+.tool-border{
+	
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%,-50%);
+    border: 0.5px dashed orange;
+}
+body{padding:20px 15px!important;margin: 0!important;}
+.edui-default .edui-editor-toolbarbox{
+	margin-bottom: 10px;
+}
+.edui-default .edui-for-fullscreen .edui-icon {
+    background-position: -809px -79px;
+}
+
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:1.6;background:#fff}
+*{max-width:100%!important;margin:0;padding:0;box-sizing:border-box!important;-webkit-box-sizing:border-box!important;word-wrap:break-word!important}
+body{-webkit-touch-callout:none;position:absolute;width:100%;margin:0;padding:15px!important;font-size:16px;overflow-x:hidden;font-family:"Microsoft YaHei",Arial,sans-serif;background-color:#fff}
+body{word-break:break-all;word-wrap:break-word;cursor:text;color:#3e3e3e}
+blockquote{margin:0;padding-left:10px;border-left:3px solid #dbdbdb}
+.RankEditor{position:relative}
+.video-ng{position:relative}
+a{color:#00b7ee;text-decoration:none}
+p{min-height:1em}
+table{margin-bottom:10px;border-collapse:collapse;display:table;width:100%!important}
+td,th{word-break:break-all;padding:5px 10px;border:1px solid #ddd}
+::-webkit-scrollbar{width:8px;margin-right:1px}
+::-webkit-scrollbar-track{background-color:#e0e0e0}
+::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,.2)}
+::-webkit-scrollbar-button{background-color:#e0e0e0}
+::-webkit-scrollbar-corner{background-color:#000}

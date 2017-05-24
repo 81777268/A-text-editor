@@ -1,0 +1,25 @@
+{%for items in page%}
+<div class="js_appmsg_item appmsg_item_wrp has_thumb" data-id="_{{items.id}}">
+   <div class="js_news_item" data-uuid="{{items.uuid}}" data-idx="{{loop.index}}">
+       <div class="first_appmsg_item" title="第{{loop.index}}篇图文">
+            <div class="cover_appmsg_item">
+               <h4 class="appmsg_title"><a class="js_appmsg_title" href="javascript:void(0);">{{items.title}}</a></h4>
+               <div class="appmsg_thumb_wrp js_appmsg_thumb" style="background-image:url({{items.cover_pic}});">
+                   <div class="appmsg_thumb default defaultImg" style="display: none;">
+                      <i class="icon_appmsg_thumb">封面图片</i>
+                   </div>
+               </div>
+            </div>
+        </div>
+        <div class="appmsg_item has_cover">
+            <div class="appmsg_thumb_wrp js_appmsg_thumb" style="background-image:url({{items.cover_pic}});">
+                <div class="appmsg_thumb default defaultImg" style="display: none;">
+                   <i class="icon_appmsg_thumb_small">缩略图</i>
+                 </div>
+            </div>
+            <h4 class="appmsg_title js_appmsg_title">{{items.title}}</h4>
+        </div>
+
+      </div>
+  </div>
+{%endfor%}

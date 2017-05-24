@@ -1,0 +1,47 @@
+*{margin: 0;padding:0;}
+ul li{list-style: none;}
+.mainContainer{padding: 20px;}
+.styleWrapper{border: 1px solid #ccc;margin-right: 20px;}
+.nav-tabs{border-bottom: 1px solid #ccc;}
+.nav-tabs li{ float: left;list-style: none;width: 63px;text-align: center;height: 48px;line-height: 48px;}
+.nav-tabs li a{text-decoration: none;color: #222;display: block;width: 100%;height: 100%;}
+.nav-tabs li a:hover{color: blue;}
+.nav-tabs li.cur a{color: blue;}
+.tab-content .tab-panl{display: none;padding: 10px 15px;}
+.tab-content .tab-panl:nth-child(1){display: block;}
+.tab-content .tab-panl li{padding:10px 0;cursor: pointer;list-style: none;}
+.tab-content .tab-panl li:hover{background: rgba(204, 204, 204, 0.1);}
+.tab-content .tab-panl li img{max-width: 100%;}
+.slider {
+    height: 16px!important;
+    width: auto;
+    background-color: #FFF;
+    margin-bottom: 5px;
+    position: relative;
+}
+.slider .dragbar {
+    height: 100%;
+    width: auto;
+    color: #333;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+    background-color: #ccc;
+    z-index: 2;
+    position: relative;
+}
+.slider .draghandle {
+    height: 16px;
+    width: 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #999;
+    z-index: 3;
+}
+
+.dragWrapper{position: relative; width: 262px; height: 16px; font-size: 12px; margin-bottom: 10px;}
+ .dragbarBg{height: 16px;background: #FFF; overflow: hidden;}
+ .dragbar{background: #CCC; width: 0; height: 16px;line-height: 16px; text-align: center; color: #222;}
+ .draghandle{width: 12px; height: 16px; background: #999; overflow: hidden; position: absolute; left: 0px; top:0px; cursor: pointer;}
